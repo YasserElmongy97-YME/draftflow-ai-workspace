@@ -64,6 +64,40 @@ function buildDemoRevision(
   return trimmed;
 }
 
+async function createLiveStream(
+  ai: GoogleGenAI,
+  systemInstruction: string,
+  userPrompt: string
+) {
+  const config = { systemInstruction };
+
+  try {
+    return await ai.models.generateContentStream({
+      model: "gemini-3.8-flash",
+      contents: userPrompt,
+      config,
+    });
+  } catch (error) {
+    if (
+      typeof error !== "object" ||
+      error === null ||
+      !("status" in error) ||
+      error.status !== 503
+    ) {
+      throw error;
+    }
+
+    console.warn(
+      "Gemini 3.8 Flash is temporarily unavailable; retrying with Gemini 3.6 Flash."
+    );
+    return ai.models.generateContentStream({
+      model: "gemini-3.6-flash",
+      contents: userPrompt,
+      config,
+    });
+  }
+}
+
 export async function* streamGenerateDraft(
   systemInstruction: string,
   userPrompt: string,
@@ -80,13 +114,7 @@ export async function* streamGenerateDraft(
   }
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-  const response = await ai.models.generateContentStream({
-    model: "gemini-3.8-flash",
-    contents: userPrompt,
-    config: {
-      systemInstruction,
-    },
-  });
+  const response = await createLiveStream(ai, systemInstruction, userPrompt);
 
   for await (const chunk of response) {
     if (chunk.text) {
@@ -112,13 +140,7 @@ export async function* streamReviseDraft(
   }
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-  const response = await ai.models.generateContentStream({
-    model: "gemini-3.8-flash",
-    contents: userPrompt,
-    config: {
-      systemInstruction,
-    },
-  });
+  const response = await createLiveStream(ai, systemInstruction, userPrompt);
 
   for await (const chunk of response) {
     if (chunk.text) {

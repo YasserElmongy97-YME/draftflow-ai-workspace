@@ -26,7 +26,7 @@ An editorial content workspace built with Next.js 16 (App Router), React 19, Typ
 - **Framework:** Next.js 16 (App Router), React 19, TypeScript (strict)
 - **Styling:** Tailwind CSS (dark editorial design system)
 - **Database:** PostgreSQL (Neon-ready) + Drizzle ORM
-- **AI:** `@google/genai` (`gemini-3.8-flash`) with an automatic Offline/Demo Mode fallback when `GEMINI_API_KEY` is unset
+- **AI:** `@google/genai` (`gemini-3.8-flash`, with a `gemini-3.6-flash` fallback for temporary 503 overloads) and Offline/Demo Mode when `GEMINI_API_KEY` is unset
 - **Validation & Testing:** Zod 4, Vitest 5, ESLint
 
 ## Setup Guide
