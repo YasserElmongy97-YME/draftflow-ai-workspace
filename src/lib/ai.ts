@@ -81,11 +81,10 @@ export async function* streamGenerateDraft(
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const response = await ai.models.generateContentStream({
-    model: "gemini-2.5-flash",
+    model: "gemini-3.8-flash",
     contents: userPrompt,
     config: {
       systemInstruction,
-      temperature: 0.7,
     },
   });
 
@@ -114,11 +113,10 @@ export async function* streamReviseDraft(
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const response = await ai.models.generateContentStream({
-    model: "gemini-2.5-flash",
+    model: "gemini-3.8-flash",
     contents: userPrompt,
     config: {
       systemInstruction,
-      temperature: 0.4,
     },
   });
 

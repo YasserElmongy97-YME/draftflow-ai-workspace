@@ -4,7 +4,8 @@ An editorial content workspace built with Next.js 16 (App Router), React 19, Typ
 
 ## Live Demo
 
-- **Live Application:** Not deployed yet; Vercel environment setup and production verification are pending.
+- **Live Application:** https://draftflow-ai-workspace.vercel.app
+- **Source Repository:** https://github.com/YasserElmongy97-YME/draftflow-ai-workspace
 - **Demo Walkthrough:** See `docs/DEMO-SCRIPT.md`
 - **Sample Outputs:** See `/samples` (`.md` and `.html`)
 - **Internship reviewer access password:** `DraftFlow-Reviewers-2026`
@@ -25,7 +26,7 @@ An editorial content workspace built with Next.js 16 (App Router), React 19, Typ
 - **Framework:** Next.js 16 (App Router), React 19, TypeScript (strict)
 - **Styling:** Tailwind CSS (dark editorial design system)
 - **Database:** PostgreSQL (Neon-ready) + Drizzle ORM
-- **AI:** `@google/genai` (`gemini-2.5-flash`) with an automatic Offline/Demo Mode fallback when `GEMINI_API_KEY` is unset
+- **AI:** `@google/genai` (`gemini-3.8-flash`) with an automatic Offline/Demo Mode fallback when `GEMINI_API_KEY` is unset
 - **Validation & Testing:** Zod 4, Vitest 5, ESLint
 
 ## Setup Guide
