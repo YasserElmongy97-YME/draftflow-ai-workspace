@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  border-color: #232329;
+}
+
+html,
+body {
+  background-color: #0a0a0c;
+  color: #ececef;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232329;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #32323b;
+}
+
+.editorial-preview h1 {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #ececef;
+  margin-bottom: 1.25rem;
+}
+
+.editorial-preview h2 {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #ececef;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.editorial-preview h3 {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ececef;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.editorial-preview p {
+  color: #d4d4dc;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  font-size: 0.975rem;
+}
+
+.editorial-preview ul,
+.editorial-preview ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  color: #d4d4dc;
+}
+
+.editorial-preview ul {
+  list-style-type: disc;
+}
+
+.editorial-preview ol {
+  list-style-type: decimal;
+}
+
+.editorial-preview li {
+  margin-bottom: 0.4rem;
+  line-height: 1.65;
+}
+
+.editorial-preview blockquote {
+  border-left: 2px solid #d97757;
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+.editorial-preview code {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.85em;
+  background: #16161a;
+  border: 1px solid #232329;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  color: #ececef;
+}
+
+.editorial-preview pre {
+  background: #111114;
+  border: 1px solid #232329;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+.editorial-preview pre code {
+  border: none;
+  background: transparent;
+  padding: 0;
+}

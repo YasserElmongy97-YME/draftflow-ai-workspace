@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zero-Downtime PostgreSQL Migrations in Production</title>
+</head>
+<body>
+  <article>
+    <h1>Zero-Downtime PostgreSQL Migrations in Production</h1>
+    <p>Schema changes are one of the fastest ways to take down a healthy service. A single <code>ALTER TABLE</code> that acquires an <code>ACCESS EXCLUSIVE</code> lock can stall every incoming query until the connection pool saturates.</p>
+    <h2>The Expand-and-Contract Pattern</h2>
+    <ol>
+      <li><strong>Expand</strong>: Add the new column as nullable.</li>
+      <li><strong>Backfill</strong>: Copy data in bounded batches (5,000 rows per transaction).</li>
+      <li><strong>Contract</strong>: Switch reads, remove old writes, and drop the deprecated column in a follow-up release.</li>
+    </ol>
+  </article>
+</body>
+</html>
